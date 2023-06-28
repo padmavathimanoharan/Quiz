@@ -8,6 +8,7 @@
 import UIKit
 
 class AnswersTableViewCell: UITableViewCell {
+	@IBOutlet weak var answerLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
