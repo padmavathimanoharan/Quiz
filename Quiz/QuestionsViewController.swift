@@ -70,7 +70,7 @@ class QuestionsViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         userSelectedAnswers[currentQuestionIndex] = indexPath.row
-        tableView.reloadData()
+        answersTableView.reloadData()
         updateNextButtonState()
     }
     
