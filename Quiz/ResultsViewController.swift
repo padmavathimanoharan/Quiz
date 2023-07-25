@@ -11,15 +11,32 @@ class ResultsViewController: UIViewController {
 
     @IBOutlet weak var resultLabel: UILabel!
     
-    var correctAnswers = 0
-    var totalQuestions = 0
+    var correctAnswers: [Int?] = []
+    var totalQuestions: [Question] = []
     
     override func viewDidLoad() {
-            super.viewDidLoad()
-            let percentage = Double(correctAnswers) / Double(totalQuestions) * 100
-            let resultString = String(format: "You answered %.0f%% of the questions correctly.", percentage)
-            resultLabel.text = resultString
+        super.viewDidLoad()
+        showResults()
+    }
+    
+    func showResults() {
+        print(correctAnswers) // Print userSelectedAnswers for verification
+        let correctAnswersCount = calculateCorrectAnswersCount()
+        resultLabel.text = "You answered \(correctAnswersCount) out of \(totalQuestions.count) questions correctly!"
+    }
+    
+    func calculateCorrectAnswersCount() -> Int {
+        var correctAnswersCount = 0
+        for (index, question) in totalQuestions.enumerated() {
+            if let userSelectedAnswerIndex = correctAnswers[index], userSelectedAnswerIndex == question.correctAnswerIndex {
+                correctAnswersCount += 1
+                print("Question \(index+1) is correct") // Print if the question is correct
+            } else {
+                print("Question \(index+1) is incorrect") // Print if the question is incorrect
+            }
         }
+        return correctAnswersCount
+    }
     
     @IBAction func back()  {
         let  vc = storyboard?.instantiateViewController(identifier: "home") as! HomeViewController

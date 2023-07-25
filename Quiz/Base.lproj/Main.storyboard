@@ -71,7 +71,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycD-Q1-yk0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points : 10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycD-Q1-yk0">
                                 <rect key="frame" x="39.999999999999986" y="218" width="213.66666666666663" height="20.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -83,7 +83,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="No  Of Questions : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qfo-Uo-B9W">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="No Of Questions : 10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qfo-Uo-B9W">
                                 <rect key="frame" x="40" y="172" width="296.66666666666669" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -245,7 +245,9 @@
                     </view>
                     <connections>
                         <outlet property="answersTableView" destination="uNr-Yb-cAT" id="rRG-mk-KXx"/>
+                        <outlet property="nextButton" destination="dte-j0-4e7" id="KjG-uX-veT"/>
                         <outlet property="questionLabel" destination="6Rm-ZR-c1p" id="rbh-Rd-9AA"/>
+                        <segue destination="J18-mS-Tt6" kind="show" identifier="showResultsSegue" id="Zft-Y2-anT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ePr-54-6rY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -257,17 +259,17 @@
             <objects>
                 <viewController storyboardIdentifier="results" id="J18-mS-Tt6" customClass="ResultsViewController" customModule="Quiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FrC-QY-p51">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Results Summary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9q-hs-jqW">
-                                <rect key="frame" x="67" y="116" width="188" height="43"/>
+                                <rect key="frame" x="67" y="57" width="188" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJm-Cw-D6P">
-                                <rect key="frame" x="95.666666666666686" y="583" width="131" height="35"/>
+                                <rect key="frame" x="95.666666666666686" y="607" width="131" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Y3t-ye-bdQ"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="vs6-Je-4uR"/>
@@ -279,7 +281,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vv0-c6-d0Q">
-                                <rect key="frame" x="60" y="219" width="285" height="58"/>
+                                <rect key="frame" x="60" y="160" width="285" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="O6p-aE-fad"/>
                                 </constraints>
@@ -305,6 +307,7 @@
                             <constraint firstItem="wJm-Cw-D6P" firstAttribute="leading" secondItem="bRE-Bp-tZx" secondAttribute="leading" constant="95.670000000000002" id="x6N-qP-f3o"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Kk2-Lb-sVb"/>
                     <connections>
                         <outlet property="resultLabel" destination="vv0-c6-d0Q" id="yDv-Bn-8za"/>
                     </connections>
