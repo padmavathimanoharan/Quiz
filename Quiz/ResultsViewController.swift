@@ -10,6 +10,7 @@ import UIKit
 class ResultsViewController: UIViewController {
 
     @IBOutlet weak var resultLabel: UILabel!
+    @IBOutlet weak var resultNote: UILabel!
     
     var correctAnswers: [Int?] = []
     var totalQuestions: [Question] = []
@@ -20,9 +21,16 @@ class ResultsViewController: UIViewController {
     }
     
     func showResults() {
-        print(correctAnswers) // Print userSelectedAnswers for verification
         let correctAnswersCount = calculateCorrectAnswersCount()
-        resultLabel.text = "You answered \(correctAnswersCount) out of \(totalQuestions.count) questions correctly!"
+        resultLabel.text = "\(correctAnswersCount)/\(totalQuestions.count)"
+        
+        if correctAnswersCount < 5 {
+            resultNote.text = "Learn more and Try again!."
+        } else if correctAnswersCount >= 5 && correctAnswersCount <= 10 {
+            resultNote.text = "Good job! You can improve."
+        } else {
+            resultNote.text = "Congratulations! You did a great job!"
+        }
     }
     
     func calculateCorrectAnswersCount() -> Int {
@@ -30,9 +38,6 @@ class ResultsViewController: UIViewController {
         for (index, question) in totalQuestions.enumerated() {
             if let userSelectedAnswerIndex = correctAnswers[index], userSelectedAnswerIndex == question.correctAnswerIndex {
                 correctAnswersCount += 1
-                print("Question \(index+1) is correct") // Print if the question is correct
-            } else {
-                print("Question \(index+1) is incorrect") // Print if the question is incorrect
             }
         }
         return correctAnswersCount
