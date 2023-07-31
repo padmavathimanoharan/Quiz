@@ -26,7 +26,7 @@ class ResultsViewController: UIViewController {
         
         if correctAnswersCount < 5 {
             resultNote.text = "Learn more and Try again!."
-        } else if correctAnswersCount >= 5 && correctAnswersCount <= 10 {
+        } else if correctAnswersCount >= 5 && correctAnswersCount <= 8 {
             resultNote.text = "Good job! You can improve."
         } else {
             resultNote.text = "Congratulations! You did a great job!"
