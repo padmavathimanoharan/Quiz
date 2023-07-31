@@ -59,6 +59,7 @@ class QuestionsViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AnswerCell", for: indexPath)
         cell.textLabel?.text = questions[currentQuestionIndex].answers[indexPath.row]
+        cell.textLabel?.numberOfLines = 0
         // Highlight the selected answer
         if indexPath.row == userSelectedAnswers[currentQuestionIndex] {
             cell.accessoryType = .checkmark
